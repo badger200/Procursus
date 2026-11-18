@@ -58,6 +58,10 @@ ifeq (,$(findstring ramdisk,$(MEMO_TARGET)))
 		--with-xauth=$(MEMO_PREFIX)$(MEMO_SUB_PREFIX)/bin/xauth \
 		--with-ssl-engine \
 		--with-pam \
+		--with-libedit \
+		--with-sandbox=no \
+		--with-privsep-user=mobile \
+		--with-default-path=$(MEMO_PREFIX)$(MEMO_SUB_PREFIX)/local/bin:$(MEMO_PREFIX)$(MEMO_SUB_PREFIX)/bin:$(MEMO_PREFIX)/bin:$(MEMO_PREFIX)$(MEMO_SUB_PREFIX)/sbin:$(MEMO_PREFIX)/sbin:/usr/bin:/bin:/usr/sbin:/sbin \
 		check_for_libcrypt_before=1 \
 		$(OPENSSH_CONFIGURE_ARGS)
 	+$(MAKE) -C $(BUILD_WORK)/openssh \
